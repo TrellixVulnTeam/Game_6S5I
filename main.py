@@ -703,54 +703,54 @@ while running:
                     w_position = (15, 12)
                     fihish_id = (6, 3)
                     t = 0
-                    m_position = [(5, 11), (4, 15), (19, 8)]
-                    bm_position = []
-                    gm_position = []
+                    m_position = [(5, 11), (4, 15), (19, 8), (12, 7)]
+                    bm_position = [(15, 12)]
+                    gm_position = [(5, 10)]
                 if event.ui_element == switch4:
                     k = 'map1'
                     position = (18, 16)
                     w_position = (5, 5)
                     fihish_id = (4, 3)
                     t = 0
-                    m_position = []
-                    bm_position = []
-                    gm_position = []
+                    m_position = [(15, 13), (17, 6), (7, 15), (10, 17), (8, 7), (2, 10), (9, 2)]
+                    bm_position = [(18, 13), (15, 1)]
+                    gm_position = [(12, 7), (2, 5)]
                 if event.ui_element == switch3:
                     k = 'map2'
                     position = (14, 17)
                     w_position = (5, 5)
                     fihish_id = (17, 1)
                     t = 0
-                    m_position = []
-                    bm_position = []
-                    gm_position = []
+                    m_position = [(18, 4), (10, 10), (15, 13), (5, 5)]
+                    bm_position = [(2, 10), (6, 2)]
+                    gm_position = [(12, 7), (7, 15)]
                 if event.ui_element == switch1:
                     k = 'map3'
                     position = (2, 10)
                     w_position = (5, 5)
                     fihish_id = (12, 7)
                     t = 0
-                    m_position = []
-                    bm_position = []
-                    gm_position = []
+                    m_position = [(5, 11), (19, 8)]
+                    bm_position = [(5, 5)]
+                    gm_position = [(12, 10)]
                 if event.ui_element == switch17:
                     k = 'map4'
                     position = (1, 1)
                     w_position = (9, 4)
                     fihish_id = (13, 11)
                     t = 0
-                    m_position = []
-                    bm_position = []
-                    gm_position = []
+                    m_position = [(17, 4), (3, 7)]
+                    bm_position = [(5, 19), (12, 16)]
+                    gm_position = [(18, 6), (15, 13)]
                 if event.ui_element == switch5:
                     k = 'map5'
                     position = (18, 19)
                     w_position = (5, 5)
                     fihish_id = (1, 7)
                     t = 0
-                    m_position = []
-                    bm_position = []
-                    gm_position = []
+                    m_position = [(19, 14), (2, 10), (8, 3), (8, 8), (13, 1)]
+                    bm_position = [(1, 16), (14, 7)]
+                    gm_position = [(8, 19), (19, 1)]
                 if event.ui_element == switch6:
                     k = 'map6'
                     position = (19, 1)
