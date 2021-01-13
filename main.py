@@ -703,7 +703,7 @@ while running:
                     w_position = (15, 12)
                     fihish_id = (6, 3)
                     t = 0
-                    m_position = []
+                    m_position = [(5, 11), (4, 15), (19, 8)]
                     bm_position = []
                     gm_position = []
                 if event.ui_element == switch4:
