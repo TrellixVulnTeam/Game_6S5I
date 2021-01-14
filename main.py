@@ -470,7 +470,6 @@ while running:
                                     screen1.blit(scaled_image, (380, 100 - t))
                                     g = 1
                             if g == 1:
-                                print(k)
                                 war_image = pygame.image.load("data/war.png").convert_alpha()
                                 war_image = pygame.transform.scale(war_image, (220 - 70, 310 - 70))
                                 war1_image = pygame.image.load("data/war1.png").convert_alpha()
@@ -793,63 +792,63 @@ while running:
                     w_position = (19, 3)
                     fihish_id = (13, 3)
                     t = 0
-                    m_position = []
-                    bm_position = []
-                    gm_position = []
+                    m_position = [(19, 3), (8, 1), (5, 15), (14, 10)]
+                    bm_position = [(3, 7), (19, 12)]
+                    gm_position = [(18, 16), (7, 5)]
                 if event.ui_element == switch11:
                     k = 'map11'
                     position = (2, 1)
                     w_position = (8, 10)
                     fihish_id = (16, 17)
                     t = 0
-                    m_position = []
-                    bm_position = []
-                    gm_position = []
+                    m_position = [(18, 13), (15, 1), (2, 5), (5, 14)]
+                    bm_position = [(16, 9), (1, 17)]
+                    gm_position = [(7, 19), (8, 10)]
                 if event.ui_element == switch12:
                     k = 'map12'
                     position = (3, 1)
                     w_position = (18, 1)
                     fihish_id = (17, 10)
                     t = 0
-                    m_position = []
-                    bm_position = []
-                    gm_position = []
+                    m_position = [(18, 1), (14, 13), (1, 7), (8, 11)]
+                    bm_position = [(2, 17), (14, 1)]
+                    gm_position = [(10, 5), (17, 18)]
                 if event.ui_element == switch13:
                     k = 'map13'
                     position = (19, 4)
                     w_position = (14, 7)
                     fihish_id = (17, 18)
                     t = 0
-                    m_position = []
-                    bm_position = []
-                    gm_position = []
+                    m_position = [(9, 5), (10, 15), (2, 7), (1, 3), (5, 19)]
+                    bm_position = [(9, 13), (18, 6)]
+                    gm_position = [(16, 13), (13, 1)]
                 if event.ui_element == switch14:
                     k = 'map14'
                     position = (1, 19)
                     w_position = (1, 1)
                     fihish_id = (19, 19)
                     t = 0
-                    m_position = []
-                    bm_position = []
-                    gm_position = []
+                    m_position = [(4, 12), (8, 1), (9, 12), (13, 7), (6, 7), (14, 19)]
+                    bm_position = [(1, 1), (18, 3)]
+                    gm_position = [(3, 19), (17, 10)]
                 if event.ui_element == switch15:
                     k = 'map15'
                     position = (17, 2)
                     w_position = (1, 3)
                     fihish_id = (18, 19)
                     t = 0
-                    m_position = []
-                    bm_position = []
-                    gm_position = []
+                    m_position = [(5, 1), (10, 14), (15, 4), (14, 18), (9, 8)]
+                    bm_position = [(18, 5), (3, 19)]
+                    gm_position = [(1, 6), (19, 14)]
                 if event.ui_element == switch16:
                     k = 'map16'
                     position = (3, 19)
                     w_position = (6, 15)
                     fihish_id = (9, 1)
                     t = 0
-                    m_position = []
-                    bm_position = []
-                    gm_position = []
+                    m_position = [(1, 2), (9, 5), (14, 14), (16, 10), (1, 8)]
+                    bm_position = [(19, 4), (1, 11)]
+                    gm_position = [(8, 18), (5, 1)]
                 if event.ui_element == switch18:
                     k = 'uo.txt'
                     position = (5, 5)
