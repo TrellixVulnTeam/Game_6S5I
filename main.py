@@ -757,36 +757,36 @@ while running:
                     w_position = (1, 19)
                     fihish_id = (9, 7)
                     t = 0
-                    m_position = []
-                    bm_position = []
-                    gm_position = []
+                    m_position = [(16, 2), (2, 16), (8, 18), (12, 4)]
+                    bm_position = [(7, 11), (19, 19)]
+                    gm_position = [(18, 6), (1, 1)]
                 if event.ui_element == switch7:
                     k = 'map7'
                     position = (1, 1)
                     w_position = (13, 18)
                     fihish_id = (19, 10)
                     t = 0
-                    m_position = []
-                    bm_position = []
-                    gm_position = []
+                    m_position = [(19, 14), (5, 18), (18, 17), (8, 10)]
+                    bm_position = [(2, 13), (19, 1)]
+                    gm_position = [(8, 5), (14, 9)]
                 if event.ui_element == switch8:
                     k = 'map8'
                     position = (1, 1)
                     w_position = (4, 4)
                     fihish_id = (13, 16)
                     t = 0
-                    m_position = []
-                    bm_position = []
-                    gm_position = []
+                    m_position = [(16, 7), (15, 18), (3, 11), (1, 4)]
+                    bm_position = [(5, 7), (19, 19)]
+                    gm_position = [(7, 1), (19, 1)]
                 if event.ui_element == switch9:
                     k = 'map9'
                     position = (5, 19)
                     w_position = (13, 12)
                     fihish_id = (18, 19)
                     t = 0
-                    m_position = []
-                    bm_position = []
-                    gm_position = []
+                    m_position = [(7, 14), (19, 14), (19, 10), (7, 1)]
+                    bm_position = [(1, 1), (19, 1)]
+                    gm_position = [(5, 17), (13, 11)]
                 if event.ui_element == switch10:
                     k = 'map10'
                     position = (6, 19)
