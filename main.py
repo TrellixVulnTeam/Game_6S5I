@@ -40,16 +40,20 @@ scaled_image = pygame.transform.scale(my_image, (130, 150))
 screen.blit(scaled_image, (30, 370))
 
 start = pygame_gui.elements.UIButton(
-    relative_rect=pygame.Rect((205, 180), (200, 150)),
+    relative_rect=pygame.Rect((205, 180), (180, 130)),
     text='START',
     manager=manager)
 ex = pygame_gui.elements.UIButton(
-    relative_rect=pygame.Rect((260, 400), (100, 60)),
+    relative_rect=pygame.Rect((245, 410), (100, 60)),
     text='EXIT',
     manager=manager)
 ret = pygame_gui.elements.UIButton(
     relative_rect=pygame.Rect((30, 660), (70, 20)),
     text='return',
+    manager=manager)
+rule = pygame_gui.elements.UIButton(
+    relative_rect=pygame.Rect((225, 325), (140, 70)),
+    text='RULE',
     manager=manager)
 
 
@@ -420,17 +424,288 @@ running = True
 game_over = False
 schet = 0
 t = 0
-
+rules_print = False
+rules = 0
 while running:
     g = 1
     time_de = clock.tick(60) / 1000.0
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+        if rules_print and rules == 0:
+            size = width, height = 620, 560
+            screen2 = pygame.display.set_mode(size)
+            background = pygame.Surface((620, 560))
+            color = (174, 96, 170)
+            background.fill(pygame.Color(color))
+            manager = pygame_gui.UIManager((620, 560))
+            screen2.blit(background, (0, 0))
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                rules_print = False
+                rules = 1
+            continue
+        if rules == 1:
+            rules = 0
+            pygame.display.set_caption('THE BEST LAB')
+            size = width, height = 810, 880
+            screen1 = pygame.display.set_mode(size)
+
+            run = True
+            x_pos = 0
+            v = 20  # пикселей в секунду
+            clock = pygame.time.Clock()
+            my_image = pygame.image.load("data/hero4.png").convert_alpha()
+            j = 0
+            k = 10
+            t = 0
+            g = 0
+            p = 0
+            while run:
+                for event in pygame.event.get():
+                    if event.type == pygame.MOUSEBUTTONDOWN:
+                        run = False
+                screen1.fill((82, 0, 135))
+                if int(x_pos) <= 380:
+                    screen1.blit(my_image, (int(x_pos), 100))
+                    x_pos += v * clock.tick() / 50  # v * t в секундах
+                else:
+                    screen1.blit(my_image, (380, 300))
+                    j = 1
+                if j == 1:
+                    pygame.draw.rect(screen1, (82, 0, 135), (0, 0, 810, 880))
+                    if 380 - k > 150:
+                        scaled_image = pygame.transform.scale(my_image, (380 - k, 400 - k))
+                        k += 10
+                        screen1.blit(scaled_image, (380, 100 - t))
+                        t -= 10
+                    else:
+                        screen1.blit(scaled_image, (380, 100 - t))
+                        g = 1
+                if g == 1:
+                    war_image = pygame.image.load("data/war.png").convert_alpha()
+                    war_image = pygame.transform.scale(war_image, (220 - 70, 310 - 70))
+                    war1_image = pygame.image.load("data/war1.png").convert_alpha()
+                    war1_image = pygame.transform.scale(war1_image, (262 - 70, 310 - 70))
+                    war2_image = pygame.image.load("data/war2.png").convert_alpha()
+                    war2_image = pygame.transform.scale(war2_image, (232 - 70, 330 - 70))
+                    war3_image = pygame.image.load("data/hero3.png").convert_alpha()
+                    war3_image = pygame.transform.scale(war3_image, (262 - 70, 320 - 70))
+                    screen1.blit(war_image, (90, 50))
+                    screen1.blit(war1_image, (480, 60))
+                    screen1.blit(war2_image, (110, 510))
+                    screen1.blit(war3_image, (550, 500))
+                    p = 1
+                if p == 1:
+                    pygame.draw.rect(screen1, (82, 0, 135), (0, 0, 1910, 1070))
+                    war_image = pygame.image.load("data/war.png").convert_alpha()
+                    war_image = pygame.transform.scale(war_image, (220 - 70, 310 - 70))
+                    war1_image = pygame.image.load("data/war1.png").convert_alpha()
+                    war1_image = pygame.transform.scale(war1_image, (262 - 70, 310 - 70))
+                    war2_image = pygame.image.load("data/war2.png").convert_alpha()
+                    war2_image = pygame.transform.scale(war2_image, (232 - 70, 330 - 70))
+                    war3_image = pygame.image.load("data/hero3.png").convert_alpha()
+                    war3_image = pygame.transform.scale(war3_image, (262 - 70, 320 - 70))
+                    screen1.blit(war_image, (90, 50))
+                    screen1.blit(war1_image, (480, 60))
+                    screen1.blit(war2_image, (110, 510))
+                    screen1.blit(war3_image, (550, 500))
+                    screen1.blit(scaled_image, (int(x_pos), 100 - t))
+                    x_pos += v * clock.tick() / 50  # v * t в секундах
+
+                pygame.display.flip()
+                schet = 1
+
+            size = width, height = 650 + 200, 600
+            screen = pygame.display.set_mode(size)
+
+            background = pygame.Surface((650 + 200, 700))
+            background.fill(pygame.Color(color))
+            manager = pygame_gui.UIManager((650 + 200, 700))
+            switch = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((10 + 200, 10), (100, 50)),
+                text='1',
+                manager=manager)
+            switch1 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((110 + 200, 10), (100, 50)),
+                text='2',
+                manager=manager)
+            switch2 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((210 + 200, 10), (100, 50)),
+                text='3',
+                manager=manager)
+            switch3 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((310 + 200, 10), (100, 50)),
+                text='4',
+                manager=manager)
+            switch4 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((410 + 200, 10), (100, 50)),
+                text='5',
+                manager=manager)
+            switch5 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((510 + 200, 10), (100, 50)),
+                text='6',
+                manager=manager)
+            switch6 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((10 + 200, 100), (100, 50)),
+                text='7',
+                manager=manager)
+            switch7 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((110 + 200, 100), (100, 50)),
+                text='8',
+                manager=manager)
+            switch8 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((210 + 200, 100), (100, 50)),
+                text='9',
+                manager=manager)
+            switch9 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((310 + 200, 100), (100, 50)),
+                text='10',
+                manager=manager)
+            switch10 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((410 + 200, 100), (100, 50)),
+                text='11',
+                manager=manager)
+            switch11 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((510 + 200, 100), (100, 50)),
+                text='12',
+                manager=manager)
+            switch12 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((10 + 200, 200), (100, 50)),
+                text='13',
+                manager=manager)
+            switch13 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((110 + 200, 200), (100, 50)),
+                text='14',
+                manager=manager)
+            switch14 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((210 + 200, 200), (100, 50)),
+                text='15',
+                manager=manager)
+            switch15 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((310 + 200, 200), (100, 50)),
+                text='16',
+                manager=manager)
+            switch16 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((410 + 200, 200), (100, 50)),
+                text='17',
+                manager=manager)
+            switch17 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((510 + 200, 200), (100, 50)),
+                text='18',
+                manager=manager)
+            switch18 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((10 + 200, 300), (100, 50)),
+                text='1',
+                manager=manager)
+            switch19 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((110 + 200, 300), (100, 50)),
+                text='2',
+                manager=manager)
+            switch20 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((210 + 200, 300), (100, 50)),
+                text='3',
+                manager=manager)
+            switch21 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((310 + 200, 300), (100, 50)),
+                text='4',
+                manager=manager)
+            switch22 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((410 + 200, 300), (100, 50)),
+                text='5',
+                manager=manager)
+            switch23 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((510 + 200, 300), (100, 50)),
+                text='6',
+                manager=manager)
+            switch24 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((10 + 200, 400), (100, 50)),
+                text='7',
+                manager=manager)
+            switch25 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((110 + 200, 400), (100, 50)),
+                text='8',
+                manager=manager)
+            switch26 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((210 + 200, 400), (100, 50)),
+                text='9',
+                manager=manager)
+            switch27 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((310 + 200, 400), (100, 50)),
+                text='10',
+                manager=manager)
+            switch28 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((410 + 200, 400), (100, 50)),
+                text='11',
+                manager=manager)
+            switch29 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((510 + 200, 400), (100, 50)),
+                text='12',
+                manager=manager)
+            switch30 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((10 + 200, 500), (100, 50)),
+                text='13',
+                manager=manager)
+            switch31 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((110 + 200, 500), (100, 50)),
+                text='14',
+                manager=manager)
+            switch32 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((210 + 200, 500), (100, 50)),
+                text='15',
+                manager=manager)
+            switch33 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((310 + 200, 500), (100, 50)),
+                text='16',
+                manager=manager)
+            switch34 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((410 + 200, 500), (100, 50)),
+                text='17',
+                manager=manager)
+            switch35 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((510 + 200, 500), (100, 50)),
+                text='18',
+                manager=manager)
+            ex = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((300 + 100, 560), (70, 20)),
+                text='EXIT',
+                manager=manager)
+
+            pygame.display.update()
+            manager.process_events(event)
+            manager.update(time_de)
+            my_image = pygame.image.load("data/fon6.jpg").convert_alpha()
+            scaled_image = pygame.transform.scale(my_image, (650 + 200, 700))
+            screen.blit(scaled_image, (0, 0))
+
+            font = pygame.font.Font(None, 50)
+            text = font.render('1 PLAYER', 1, (255, 255, 255))
+            text_x = 200 // 2 - text.get_width() // 2
+            text_y = 200 // 2 - text.get_height() // 2
+            text_w = text.get_width()
+            text_h = text.get_height()
+            screen.blit(text, (text_x, text_y + 20))
+
+            font = pygame.font.Font(None, 50)
+            text = font.render('2 PLAYERS', 1, (255, 255, 255))
+            text_x = 200 // 2 - text.get_width() // 2
+            text_y = 200 // 2 - text.get_height() // 2
+            screen.blit(text, (text_x + 5, text_y + 320))
+
+            pygame.draw.line(screen, (58, 0, 211), (0, 280), (1000, 280), 4)
+
+            manager.draw_ui(screen)
+            pygame.display.update()
+            clock.tick(15)
+            d = 0
+            music.stop()
+            continue
         if event.type == pygame.USEREVENT:
             if event.user_type == pygame_gui.UI_BUTTON_START_PRESS:
                 if event.ui_element == ex:
                     running = False
+                    continue
+                if event.ui_element == rule:
+                    rules_print = True
                     continue
                 if event.ui_element == start or event.ui_element == ret:
                     if schet != 1:
