@@ -417,6 +417,7 @@ class Game_2:
 z = 1
 d = 0
 a = 0
+again = 0
 music = pygame.mixer.Sound("voice/re.wav")
 music.play(0)
 clock = pygame.time.Clock()
@@ -686,6 +687,206 @@ while running:
 
                 pygame.display.flip()
                 schet = 1
+
+            size = width, height = 650 + 200, 600
+            screen = pygame.display.set_mode(size)
+
+            background = pygame.Surface((650 + 200, 700))
+            background.fill(pygame.Color(color))
+            manager = pygame_gui.UIManager((650 + 200, 700))
+            switch = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((10 + 200, 10), (100, 50)),
+                text='1',
+                manager=manager)
+            switch1 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((110 + 200, 10), (100, 50)),
+                text='2',
+                manager=manager)
+            switch2 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((210 + 200, 10), (100, 50)),
+                text='3',
+                manager=manager)
+            switch3 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((310 + 200, 10), (100, 50)),
+                text='4',
+                manager=manager)
+            switch4 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((410 + 200, 10), (100, 50)),
+                text='5',
+                manager=manager)
+            switch5 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((510 + 200, 10), (100, 50)),
+                text='6',
+                manager=manager)
+            switch6 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((10 + 200, 100), (100, 50)),
+                text='7',
+                manager=manager)
+            switch7 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((110 + 200, 100), (100, 50)),
+                text='8',
+                manager=manager)
+            switch8 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((210 + 200, 100), (100, 50)),
+                text='9',
+                manager=manager)
+            switch9 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((310 + 200, 100), (100, 50)),
+                text='10',
+                manager=manager)
+            switch10 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((410 + 200, 100), (100, 50)),
+                text='11',
+                manager=manager)
+            switch11 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((510 + 200, 100), (100, 50)),
+                text='12',
+                manager=manager)
+            switch12 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((10 + 200, 200), (100, 50)),
+                text='13',
+                manager=manager)
+            switch13 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((110 + 200, 200), (100, 50)),
+                text='14',
+                manager=manager)
+            switch14 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((210 + 200, 200), (100, 50)),
+                text='15',
+                manager=manager)
+            switch15 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((310 + 200, 200), (100, 50)),
+                text='16',
+                manager=manager)
+            switch16 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((410 + 200, 200), (100, 50)),
+                text='17',
+                manager=manager)
+            switch17 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((510 + 200, 200), (100, 50)),
+                text='18',
+                manager=manager)
+            switch18 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((10 + 200, 300), (100, 50)),
+                text='1',
+                manager=manager)
+            switch19 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((110 + 200, 300), (100, 50)),
+                text='2',
+                manager=manager)
+            switch20 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((210 + 200, 300), (100, 50)),
+                text='3',
+                manager=manager)
+            switch21 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((310 + 200, 300), (100, 50)),
+                text='4',
+                manager=manager)
+            switch22 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((410 + 200, 300), (100, 50)),
+                text='5',
+                manager=manager)
+            switch23 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((510 + 200, 300), (100, 50)),
+                text='6',
+                manager=manager)
+            switch24 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((10 + 200, 400), (100, 50)),
+                text='7',
+                manager=manager)
+            switch25 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((110 + 200, 400), (100, 50)),
+                text='8',
+                manager=manager)
+            switch26 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((210 + 200, 400), (100, 50)),
+                text='9',
+                manager=manager)
+            switch27 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((310 + 200, 400), (100, 50)),
+                text='10',
+                manager=manager)
+            switch28 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((410 + 200, 400), (100, 50)),
+                text='11',
+                manager=manager)
+            switch29 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((510 + 200, 400), (100, 50)),
+                text='12',
+                manager=manager)
+            switch30 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((10 + 200, 500), (100, 50)),
+                text='13',
+                manager=manager)
+            switch31 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((110 + 200, 500), (100, 50)),
+                text='14',
+                manager=manager)
+            switch32 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((210 + 200, 500), (100, 50)),
+                text='15',
+                manager=manager)
+            switch33 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((310 + 200, 500), (100, 50)),
+                text='16',
+                manager=manager)
+            switch34 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((410 + 200, 500), (100, 50)),
+                text='17',
+                manager=manager)
+            switch35 = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((510 + 200, 500), (100, 50)),
+                text='18',
+                manager=manager)
+            ex = pygame_gui.elements.UIButton(
+                relative_rect=pygame.Rect((300 + 100, 560), (70, 20)),
+                text='EXIT',
+                manager=manager)
+
+            pygame.display.update()
+            manager.process_events(event)
+            manager.update(time_de)
+            my_image = pygame.image.load("data/fon6.jpg").convert_alpha()
+            scaled_image = pygame.transform.scale(my_image, (650 + 200, 700))
+            screen.blit(scaled_image, (0, 0))
+
+            font = pygame.font.Font(None, 50)
+            text = font.render('1 PLAYER', 1, (255, 255, 255))
+            text_x = 200 // 2 - text.get_width() // 2
+            text_y = 200 // 2 - text.get_height() // 2
+            text_w = text.get_width()
+            text_h = text.get_height()
+            screen.blit(text, (text_x, text_y + 20))
+
+            font = pygame.font.Font(None, 50)
+            text = font.render('2 PLAYERS', 1, (255, 255, 255))
+            text_x = 200 // 2 - text.get_width() // 2
+            text_y = 200 // 2 - text.get_height() // 2
+            screen.blit(text, (text_x + 5, text_y + 320))
+
+            pygame.draw.line(screen, (58, 0, 211), (0, 280), (1000, 280), 4)
+
+            manager.draw_ui(screen)
+            pygame.display.update()
+            clock.tick(15)
+            d = 0
+            music.stop()
+            continue
+        if event.type == pygame.MOUSEBUTTONUP and again == 1:
+            pygame.display.set_caption('THE BEST LAB')
+            size = width, height = 810, 880
+            screen1 = pygame.display.set_mode(size)
+
+            x_pos = 0
+            v = 20  # пикселей в секунду
+            clock = pygame.time.Clock()
+            my_image = pygame.image.load("data/hero4.png").convert_alpha()
+            j = 0
+            k = 10
+            t = 0
+            g = 0
+            p = 0
+
 
             size = width, height = 650 + 200, 600
             screen = pygame.display.set_mode(size)
@@ -1521,7 +1722,9 @@ while running:
                 text_h = text.get_height()
                 pygame.draw.rect(screen, (153, 153, 153), (text_x - 10, text_y - 10, text_w + 20, text_h + 20))
                 screen.blit(text, (text_x, text_y))
+                again = 1
                 d = 0
+                continue
             if position == w_position:
                 music = pygame.mixer.Sound("voice/Lost (online-audio-converter.com).wav")
                 music.play(0)
@@ -1533,7 +1736,9 @@ while running:
                 text_h = text.get_height()
                 pygame.draw.rect(screen, (153, 153, 153), (text_x - 10, text_y - 10, text_w + 20, text_h + 20))
                 screen.blit(text, (text_x, text_y))
+                again = 1
                 d = 0
+                continue
         else:
             hero = Hero(position, k)
             hero_2 = Hero_2(w_position, k)
@@ -1557,6 +1762,7 @@ while running:
                     text_h = text.get_height()
                     pygame.draw.rect(screen, (153, 153, 153), (text_x - 10, text_y - 10, text_w + 20, text_h + 20))
                     screen.blit(text, (text_x, text_y))
+                    again = 1
                     d = 0
                 else:
                     music = pygame.mixer.Sound("voice/Win (online-audio-converter.com).wav")
@@ -1569,6 +1775,8 @@ while running:
                     text_h = text.get_height()
                     pygame.draw.rect(screen, (153, 153, 153), (text_x - 10, text_y - 10, text_w + 20, text_h + 20))
                     screen.blit(text, (text_x, text_y))
+                    again = 1
+                    again = 1
                     d = 0
             elif fihish_id == w_position:
                 music = pygame.mixer.Sound("voice/Win (online-audio-converter.com).wav")
@@ -1581,6 +1789,7 @@ while running:
                 text_h = text.get_height()
                 pygame.draw.rect(screen, (153, 153, 153), (text_x - 10, text_y - 10, text_w + 20, text_h + 20))
                 screen.blit(text, (text_x, text_y))
+                again = 1
                 d = 0
     manager.update(time_de)
     manager.draw_ui(screen)
