@@ -440,6 +440,178 @@ while running:
             background.fill(pygame.Color(color))
             manager = pygame_gui.UIManager((620, 560))
             screen2.blit(background, (0, 0))
+            font = pygame.font.Font(None, 40)
+            text = font.render('Правила:', 1, (255, 255, 255))
+            text_x = 220
+            text_y = 20
+            text_w = text.get_width()
+            text_h = text.get_height()
+            #pygame.draw.rect(screen, (153, 153, 153), (text_x - 10, text_y - 10, text_w + 20, text_h + 20))
+            screen2.blit(text, (text_x, text_y))
+            font = pygame.font.Font(None, 25)
+            text = font.render('Одиночная игра:', 1, (255, 255, 255))
+            text_x = 20
+            text_y = 45
+            text_w = text.get_width()
+            text_h = text.get_height()
+            pygame.draw.rect(screen, (153, 153, 153), (text_x, text_y, text_w, text_h))
+            screen2.blit(text, (text_x, text_y))
+            font = pygame.font.Font(None, 25)
+            text = font.render('Вы играете за Героя. В каждом уровне вам нужно от изначального', 1, (255, 255, 255))
+            text_x = 20
+            text_y = 70
+            text_w = text.get_width()
+            text_h = text.get_height()
+            # pygame.draw.rect(screen, (153, 153, 153), (text_x - 10, text_y - 10, text_w + 20, text_h + 20))
+            screen2.blit(text, (text_x, text_y))
+            font = pygame.font.Font(None, 25)
+            text = font.render('положения добраться до серой клетки так, чтобы враг не успел вас', 1, (255, 255, 255))
+            text_x = 20
+            text_y = 95
+            text_w = text.get_width()
+            text_h = text.get_height()
+            # pygame.draw.rect(screen, (153, 153, 153), (text_x - 10, text_y - 10, text_w + 20, text_h + 20))
+            screen2.blit(text, (text_x, text_y))
+            font = pygame.font.Font(None, 25)
+            text = font.render('убить и вы успели собрать все желтые монеты. Герой может ходить', 1, (255, 255, 255))
+            text_x = 20
+            text_y = 120
+            text_w = text.get_width()
+            text_h = text.get_height()
+            # pygame.draw.rect(screen, (153, 153, 153), (text_x - 10, text_y - 10, text_w + 20, text_h + 20))
+            screen2.blit(text, (text_x, text_y))
+            font = pygame.font.Font(None, 25)
+            text = font.render('только по светло-розовым клеткам.', 1, (255, 255, 255))
+            text_x = 20
+            text_y = 145
+            text_w = text.get_width()
+            text_h = text.get_height()
+            # pygame.draw.rect(screen, (153, 153, 153), (text_x - 10, text_y - 10, text_w + 20, text_h + 20))
+            screen2.blit(text, (text_x, text_y))
+            font = pygame.font.Font(None, 25)
+            text = font.render('Также в этой игре есть синие и зеленые монеты, влияющие на ', 1, (255, 255, 255))
+            text_x = 20
+            text_y = 170
+            text_w = text.get_width()
+            text_h = text.get_height()
+            # pygame.draw.rect(screen, (153, 153, 153), (text_x - 10, text_y - 10, text_w + 20, text_h + 20))
+            screen2.blit(text, (text_x, text_y))
+            font = pygame.font.Font(None, 25)
+            text = font.render('скорость ходьбы врага. Если вы собрали зеленую монету, то он', 1, (255, 255, 255))
+            text_x = 20
+            text_y = 195
+            text_w = text.get_width()
+            text_h = text.get_height()
+            # pygame.draw.rect(screen, (153, 153, 153), (text_x - 10, text_y - 10, text_w + 20, text_h + 20))
+            screen2.blit(text, (text_x, text_y))
+            font = pygame.font.Font(None, 25)
+            text = font.render('ускорится, а если синюю, то замедлится.', 1, (255, 255, 255))
+            text_x = 20
+            text_y = 220
+            text_w = text.get_width()
+            text_h = text.get_height()
+            # pygame.draw.rect(screen, (153, 153, 153), (text_x - 10, text_y - 10, text_w + 20, text_h + 20))
+            screen2.blit(text, (text_x, text_y))
+            font = pygame.font.Font(None, 25)
+            text = font.render('Игра на двоих:', 1, (255, 255, 255))
+            text_x = 20
+            text_y = 245
+            text_w = text.get_width()
+            text_h = text.get_height()
+            pygame.draw.rect(screen, (153, 153, 153), (text_x, text_y, text_w, text_h))
+            screen2.blit(text, (text_x, text_y))
+            font = pygame.font.Font(None, 25)
+            text = font.render('Вы играете за двух Героев: светлого и темного. В каждом уровне вам', 1, (255, 255, 255))
+            text_x = 20
+            text_y = 270
+            text_w = text.get_width()
+            text_h = text.get_height()
+            # pygame.draw.rect(screen, (153, 153, 153), (text_x - 10, text_y - 10, text_w + 20, text_h + 20))
+            screen2.blit(text, (text_x, text_y))
+            font = pygame.font.Font(None, 25)
+            text = font.render('нужно быстрее соперника от изначального положения добраться до', 1, (255, 255, 255))
+            text_x = 20
+            text_y = 295
+            text_w = text.get_width()
+            text_h = text.get_height()
+            # pygame.draw.rect(screen, (153, 153, 153), (text_x - 10, text_y - 10, text_w + 20, text_h + 20))
+            screen2.blit(text, (text_x, text_y))
+            font = pygame.font.Font(None, 25)
+            text = font.render('серой клетки. Герои могут ходить только по светло-розовым клеткам.', 1, (255, 255, 255))
+            text_x = 20
+            text_y = 320
+            text_w = text.get_width()
+            text_h = text.get_height()
+            # pygame.draw.rect(screen, (153, 153, 153), (text_x - 10, text_y - 10, text_w + 20, text_h + 20))
+            screen2.blit(text, (text_x, text_y))
+            font = pygame.font.Font(None, 25)
+            text = font.render('Управление:', 1, (255, 255, 255))
+            text_x = 20
+            text_y = 345
+            text_w = text.get_width()
+            text_h = text.get_height()
+            pygame.draw.rect(screen, (153, 153, 153), (text_x, text_y, text_w, text_h))
+            screen2.blit(text, (text_x, text_y))
+            font = pygame.font.Font(None, 25)
+            text = font.render('Управление Герой 1(светлый) – стрелочки.', 1, (255, 255, 255))
+            text_x = 20
+            text_y = 365
+            text_w = text.get_width()
+            text_h = text.get_height()
+            # pygame.draw.rect(screen, (153, 153, 153), (text_x - 10, text_y - 10, text_w + 20, text_h + 20))
+            screen2.blit(text, (text_x, text_y))
+            ont = pygame.font.Font(None, 25)
+            text = font.render('Управление Герой 2(тёмный): W - вверх, A - влево, S - вниз, D - вправо.', 1, (255, 255, 255))
+            text_x = 20
+            text_y = 385
+            text_w = text.get_width()
+            text_h = text.get_height()
+            # pygame.draw.rect(screen, (153, 153, 153), (text_x - 10, text_y - 10, text_w + 20, text_h + 20))
+            screen2.blit(text, (text_x, text_y))
+            my_image = pygame.image.load("data/hero4.png").convert_alpha()
+            scaled_image = pygame.transform.scale(my_image, (130, 150))
+            screen.blit(scaled_image, (20, 400))
+            my_image = pygame.image.load("data/hero.png").convert_alpha()
+            scaled_image = pygame.transform.scale(my_image, (145, 150))
+            screen.blit(scaled_image, (150, 400))
+            my_image = pygame.image.load("data/war1.png").convert_alpha()
+            scaled_image = pygame.transform.scale(my_image, (145, 150))
+            screen.blit(scaled_image, (290, 400))
+            a, b = 20, 20
+            x, y = 500, 420
+            pygame.draw.rect(screen, (174, 96, 170), (x, y, a, b), 0)
+            pygame.draw.circle(screen, (255, 220, 0), (x + a // 2, y + b // 2), a // 2)
+            pygame.draw.circle(screen, (200, 200, 0), (x + a // 2, y + b // 2), a // 2, 3)
+            pygame.draw.circle(screen, (255, 255, 0), (x + a // 2, y + b // 2), a // 2 - 15, 3)
+            pygame.draw.polygon(screen, (250, 200, 0),
+                                [(x + a // 2, y + 16), (x + 16, y + a // 2), (x + a // 2, y + a - 16),
+                                 (x + a - 16, y + b // 2)])
+            pygame.draw.circle(screen, (255, 255, 0), (x + a // 2, y + b // 2), a // 2 - 7, 0)
+            a, b = 20, 20
+            x, y = 500, 460
+            pygame.draw.rect(screen, (174, 96, 170), (x, y, a, b), 0)
+            pygame.draw.circle(screen, (0, 220, 0), (x + a // 2, y + b // 2), a // 2)
+            pygame.draw.circle(screen, (0, 200, 0), (x + a // 2, y + b // 2), a // 2, 3)
+            pygame.draw.circle(screen, (0, 255, 0), (x + a // 2, y + b // 2), a // 2 - 15, 3)
+            pygame.draw.polygon(screen, (0, 200, 0),
+                                [(x + a // 2, y + 16), (x + 16, y + a // 2), (x + a // 2, y + a - 16),
+                                 (x + a - 16, y + b // 2)])
+            pygame.draw.circle(screen, (0, 255, 0), (x + a // 2, y + b // 2), a // 2 - 7, 0)
+            a, b = 20, 20
+            x, y = 500, 500
+            pygame.draw.rect(screen, (174, 96, 170), (x, y, a, b), 0)
+            pygame.draw.circle(screen, (0, 0, 100), (x + a // 2, y + b // 2), a // 2)
+            pygame.draw.circle(screen, (0, 0, 200), (x + a // 2, y + b // 2), a // 2, 3)
+            pygame.draw.circle(screen, (0, 0, 150), (x + a // 2, y + b // 2), a // 2 - 15, 3)
+            pygame.draw.circle(screen, (0, 0, 240), (x + a // 2, y + b // 2), a // 2 - 7, 0)
+            font = pygame.font.Font(None, 25)
+            text = font.render('Герой(Герой 1)         Герой 2                    Враг                 Монеты', 1, (255, 255, 255))
+            text_x = 20
+            text_y = 540
+            text_w = text.get_width()
+            text_h = text.get_height()
+            # pygame.draw.rect(screen, (153, 153, 153), (text_x - 10, text_y - 10, text_w + 20, text_h + 20))
+            screen2.blit(text, (text_x, text_y))
             if event.type == pygame.MOUSEBUTTONDOWN:
                 rules_print = False
                 rules = 1
