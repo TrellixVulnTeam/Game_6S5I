@@ -1,6 +1,8 @@
 import pygame
 import pygame_gui
 
+# введем начальные переменные
+
 maps_d = 'MAPS'
 tile_size = 40
 WAR_EVENT_TYPE = 30
@@ -9,11 +11,15 @@ size = width, height = 620, 560
 screen = pygame.display.set_mode(size)
 j = 0
 
+# рисуем начальный задний фон
+
 background = pygame.Surface((620, 560))
 color = (174, 96, 170)
 background.fill(pygame.Color(color))
 manager = pygame_gui.UIManager((620, 560))
 screen.blit(background, (0, 0))
+
+# рисуем картинки на фоне
 
 my_image = pygame.image.load("data/fon5.jpg").convert_alpha()
 scaled_image = pygame.transform.scale(my_image, (620, 560))
@@ -39,6 +45,8 @@ my_image = pygame.image.load("data/war2.png").convert_alpha()
 scaled_image = pygame.transform.scale(my_image, (130, 150))
 screen.blit(scaled_image, (30, 370))
 
+# создаем начальные кнопки
+
 start = pygame_gui.elements.UIButton(
     relative_rect=pygame.Rect((205, 180), (180, 130)),
     text='START',
@@ -58,6 +66,7 @@ rule = pygame_gui.elements.UIButton(
 
 
 class Lab:
+    # создание фона для уровней
     def __init__(self, filename, free_t, finish_t):
         self.map = []
         with open(f"{maps_d}/{filename}") as input_file:
@@ -81,10 +90,12 @@ class Lab:
                             pygame.draw.rect(screen, (14, 9, 15), (x * tile_size + a - i, y * tile_size + b - j, 4, 4))
                     for i in range(4, a + 2, 12):
                         for j in range(4, b + 2, 12):
-                            pygame.draw.rect(screen, (201, 0, 190), (x * tile_size + a - i, y * tile_size + b - j, 4, 4))
+                            pygame.draw.rect(screen, (201, 0, 190), (x * tile_size + a - i,
+                                                                     y * tile_size + b - j, 4, 4))
                     for i in range(4, a + 2, 10):
                         for j in range(4, b + 2, 10):
-                            pygame.draw.rect(screen, (153, 153, 153), (x * tile_size + a - i, y * tile_size + b - j, 4, 4))
+                            pygame.draw.rect(screen, (153, 153, 153), (x * tile_size + a - i,
+                                                                       y * tile_size + b - j, 4, 4))
                 else:
                     rect = pygame.Rect(x * self.tile_size, y * self.tile_size, self.tile_size, self.tile_size)
                     screen.fill(colors[self.get_tile_id((x, y))], rect)
@@ -120,6 +131,7 @@ class Lab:
 
 
 class Hero:
+    # создание героя
     def __init__(self, position, filename):
         self.x, self.y = position
         self.map = []
@@ -168,6 +180,7 @@ class Hero:
 
 
 class Hero_2:
+    # создание второго героя для игры вдвоем
     def __init__(self, position, filename):
         self.x, self.y = position
         self.map = []
@@ -216,6 +229,7 @@ class Hero_2:
 
 
 class War:
+    # создание врага
     def __init__(self, position, filename):
         self.x, self.y = position
         self.map = []
@@ -268,6 +282,7 @@ class War:
 
 
 class Money:
+    # создание желтых монет
     def __init__(self, position):
         self.position = self.x, self.y = position
 
@@ -288,6 +303,7 @@ class Money:
 
 
 class Green_Money(Money):
+    # создание зеленых монет
     def render(self, screen):
         a, b = 20, 20
         x, y = self.x * 40 + 10, self.y * 40 + 10
@@ -302,6 +318,7 @@ class Green_Money(Money):
 
 
 class Blue_Money(Money):
+    # создание синих монет
     def render(self, screen):
         a, b = 20, 20
         x, y = self.x * 40 + 10, self.y * 40 + 10
@@ -313,6 +330,7 @@ class Blue_Money(Money):
 
 
 class Game:
+    # общее создание игры с помощью других классов
     def __init__(self, lab, hero, war, money, gmoney, bmoney):
         self.lab = lab
         self.hero = hero
@@ -371,6 +389,7 @@ def show(screen, massage):
 
 
 class Game_2:
+    # создание игры для двоих
     def __init__(self, lab, hero, hero_2):
         self.lab = lab
         self.hero = hero
@@ -414,6 +433,8 @@ class Game_2:
         return self.hero.get_position() == self.war.get_position()
 
 
+# создание важных переменных и звука
+
 z = 1
 d = 0
 a = 0
@@ -430,8 +451,14 @@ while running:
     g = 1
     time_de = clock.tick(60) / 1000.0
     for event in pygame.event.get():
+
+        # выключение игры, если закрывают вкладку
+
         if event.type == pygame.QUIT:
             running = False
+
+        # выводим правила
+
         if rules_print and rules == 0:
             size = width, height = 620, 560
             screen2 = pygame.display.set_mode(size)
@@ -446,7 +473,6 @@ while running:
             text_y = 20
             text_w = text.get_width()
             text_h = text.get_height()
-            #pygame.draw.rect(screen, (153, 153, 153), (text_x - 10, text_y - 10, text_w + 20, text_h + 20))
             screen2.blit(text, (text_x, text_y))
             font = pygame.font.Font(None, 25)
             text = font.render('Одиночная игра:', 1, (255, 255, 255))
@@ -462,7 +488,6 @@ while running:
             text_y = 70
             text_w = text.get_width()
             text_h = text.get_height()
-            # pygame.draw.rect(screen, (153, 153, 153), (text_x - 10, text_y - 10, text_w + 20, text_h + 20))
             screen2.blit(text, (text_x, text_y))
             font = pygame.font.Font(None, 25)
             text = font.render('положения добраться до серой клетки так, чтобы враг не успел вас', 1, (255, 255, 255))
@@ -470,7 +495,6 @@ while running:
             text_y = 95
             text_w = text.get_width()
             text_h = text.get_height()
-            # pygame.draw.rect(screen, (153, 153, 153), (text_x - 10, text_y - 10, text_w + 20, text_h + 20))
             screen2.blit(text, (text_x, text_y))
             font = pygame.font.Font(None, 25)
             text = font.render('убить и вы успели собрать все желтые монеты. Герой может ходить', 1, (255, 255, 255))
@@ -478,7 +502,6 @@ while running:
             text_y = 120
             text_w = text.get_width()
             text_h = text.get_height()
-            # pygame.draw.rect(screen, (153, 153, 153), (text_x - 10, text_y - 10, text_w + 20, text_h + 20))
             screen2.blit(text, (text_x, text_y))
             font = pygame.font.Font(None, 25)
             text = font.render('только по светло-розовым клеткам.', 1, (255, 255, 255))
@@ -486,7 +509,6 @@ while running:
             text_y = 145
             text_w = text.get_width()
             text_h = text.get_height()
-            # pygame.draw.rect(screen, (153, 153, 153), (text_x - 10, text_y - 10, text_w + 20, text_h + 20))
             screen2.blit(text, (text_x, text_y))
             font = pygame.font.Font(None, 25)
             text = font.render('Также в этой игре есть синие и зеленые монеты, влияющие на ', 1, (255, 255, 255))
@@ -494,7 +516,6 @@ while running:
             text_y = 170
             text_w = text.get_width()
             text_h = text.get_height()
-            # pygame.draw.rect(screen, (153, 153, 153), (text_x - 10, text_y - 10, text_w + 20, text_h + 20))
             screen2.blit(text, (text_x, text_y))
             font = pygame.font.Font(None, 25)
             text = font.render('скорость ходьбы врага. Если вы собрали зеленую монету, то он', 1, (255, 255, 255))
@@ -502,7 +523,6 @@ while running:
             text_y = 195
             text_w = text.get_width()
             text_h = text.get_height()
-            # pygame.draw.rect(screen, (153, 153, 153), (text_x - 10, text_y - 10, text_w + 20, text_h + 20))
             screen2.blit(text, (text_x, text_y))
             font = pygame.font.Font(None, 25)
             text = font.render('ускорится, а если синюю, то замедлится.', 1, (255, 255, 255))
@@ -510,7 +530,6 @@ while running:
             text_y = 220
             text_w = text.get_width()
             text_h = text.get_height()
-            # pygame.draw.rect(screen, (153, 153, 153), (text_x - 10, text_y - 10, text_w + 20, text_h + 20))
             screen2.blit(text, (text_x, text_y))
             font = pygame.font.Font(None, 25)
             text = font.render('Игра на двоих:', 1, (255, 255, 255))
@@ -526,7 +545,6 @@ while running:
             text_y = 270
             text_w = text.get_width()
             text_h = text.get_height()
-            # pygame.draw.rect(screen, (153, 153, 153), (text_x - 10, text_y - 10, text_w + 20, text_h + 20))
             screen2.blit(text, (text_x, text_y))
             font = pygame.font.Font(None, 25)
             text = font.render('нужно быстрее соперника от изначального положения добраться до', 1, (255, 255, 255))
@@ -534,7 +552,6 @@ while running:
             text_y = 295
             text_w = text.get_width()
             text_h = text.get_height()
-            # pygame.draw.rect(screen, (153, 153, 153), (text_x - 10, text_y - 10, text_w + 20, text_h + 20))
             screen2.blit(text, (text_x, text_y))
             font = pygame.font.Font(None, 25)
             text = font.render('серой клетки. Герои могут ходить только по светло-розовым клеткам.', 1, (255, 255, 255))
@@ -542,7 +559,6 @@ while running:
             text_y = 320
             text_w = text.get_width()
             text_h = text.get_height()
-            # pygame.draw.rect(screen, (153, 153, 153), (text_x - 10, text_y - 10, text_w + 20, text_h + 20))
             screen2.blit(text, (text_x, text_y))
             font = pygame.font.Font(None, 25)
             text = font.render('Управление:', 1, (255, 255, 255))
@@ -558,7 +574,6 @@ while running:
             text_y = 365
             text_w = text.get_width()
             text_h = text.get_height()
-            # pygame.draw.rect(screen, (153, 153, 153), (text_x - 10, text_y - 10, text_w + 20, text_h + 20))
             screen2.blit(text, (text_x, text_y))
             ont = pygame.font.Font(None, 25)
             text = font.render('Управление Герой 2(тёмный): W - вверх, A - влево, S - вниз, D - вправо.', 1, (255, 255, 255))
@@ -566,7 +581,6 @@ while running:
             text_y = 385
             text_w = text.get_width()
             text_h = text.get_height()
-            # pygame.draw.rect(screen, (153, 153, 153), (text_x - 10, text_y - 10, text_w + 20, text_h + 20))
             screen2.blit(text, (text_x, text_y))
             my_image = pygame.image.load("data/hero4.png").convert_alpha()
             scaled_image = pygame.transform.scale(my_image, (130, 150))
@@ -610,12 +624,17 @@ while running:
             text_y = 540
             text_w = text.get_width()
             text_h = text.get_height()
-            # pygame.draw.rect(screen, (153, 153, 153), (text_x - 10, text_y - 10, text_w + 20, text_h + 20))
             screen2.blit(text, (text_x, text_y))
+
+            # если нажимают на правила, то выключаем правила
+
             if event.type == pygame.MOUSEBUTTONDOWN:
                 rules_print = False
                 rules = 1
             continue
+
+        # после выключения правил, включаем выбор уровня
+
         if rules == 1:
             rules = 0
             pygame.display.set_caption('THE BEST LAB')
@@ -686,6 +705,8 @@ while running:
 
                 pygame.display.flip()
                 schet = 1
+
+            # создаем кнопки и задний фон
 
             size = width, height = 650 + 200, 600
             screen = pygame.display.set_mode(size)
@@ -873,12 +894,21 @@ while running:
             continue
         if event.type == pygame.USEREVENT:
             if event.user_type == pygame_gui.UI_BUTTON_START_PRESS:
+
+                # если нажали на выход, то закрываем вкладку
+
                 if event.ui_element == ex:
                     running = False
                     continue
+
+                # если нажали на правила, то открываем правила
+
                 if event.ui_element == rule:
                     rules_print = True
                     continue
+
+                # если нажали на старт или на возвращение, то показываем выбор уровня
+
                 if event.ui_element == start or event.ui_element == ret:
                     if schet != 1:
                         pygame.display.set_caption('THE BEST LAB')
@@ -949,6 +979,8 @@ while running:
 
                             pygame.display.flip()
                             schet = 1
+
+                    # создаем кнопки и задний фон
 
                     size = width, height = 650 + 200, 600
                     screen = pygame.display.set_mode(size)
@@ -1134,6 +1166,9 @@ while running:
                     d = 0
                     music.stop()
                     continue
+
+                # для каждого уровня создаем определенные начальные переменные
+
                 if event.ui_element == switch:
                     k = 'uo.txt'
                     position = (5, 5)
@@ -1469,6 +1504,9 @@ while running:
                 j = 1
                 d = 1
         manager.process_events(event)
+
+    # если запустили уровень и не закончили его, то отрисовываем все на уровне
+
     if j == 1 and d == 1:
         if t != 1:
             hero = Hero(position, k)
@@ -1487,6 +1525,9 @@ while running:
             game.update_hero()
             position = hero.get_position()
             z += 1
+
+            # если собрали монету, то изменяем скорость врага
+
             if 0 < a < 25:
                 a += 1
                 game.move_war(z, 10)
@@ -1510,6 +1551,9 @@ while running:
                 game.move_war(z)
             w_position = war.get_position()
             game.render(screen1)
+
+            # если собрали все монеты и пришли на конечную клетку, то показываем выйгрыш
+
             if position == fihish_id and m_position == []:
                 music = pygame.mixer.Sound("voice/Win (online-audio-converter.com).wav")
                 music.play(0)
@@ -1522,6 +1566,9 @@ while running:
                 pygame.draw.rect(screen, (153, 153, 153), (text_x - 10, text_y - 10, text_w + 20, text_h + 20))
                 screen.blit(text, (text_x, text_y))
                 d = 0
+
+            # если враг убил героя, то показываем проигрыш
+
             if position == w_position:
                 music = pygame.mixer.Sound("voice/Lost (online-audio-converter.com).wav")
                 music.play(0)
@@ -1535,6 +1582,9 @@ while running:
                 screen.blit(text, (text_x, text_y))
                 d = 0
         else:
+
+            # отрисовываем все на уровне для игры на двоих
+
             hero = Hero(position, k)
             hero_2 = Hero_2(w_position, k)
             lab = Lab(k, [0, 3], 3)
@@ -1545,6 +1595,9 @@ while running:
             z += 1
             w_position = hero_2.get_position()
             game_2.render(screen1)
+
+            # если кто-то пришел на конечную клетку, то показываем выйгрыш этого персонажа
+
             if position == fihish_id:
                 if fihish_id == w_position:
                     music = pygame.mixer.Sound("voice/Win (online-audio-converter.com).wav")
